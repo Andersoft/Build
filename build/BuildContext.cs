@@ -14,12 +14,13 @@ public class BuildContext : FrostingContext
     servicePrincipalPassword = "servicePrincipalPassword",
     DockerRegistry = "dockerRegistry",
     ProjectName  = "projectName",
+    FeedUrl = "feedUrl",
     FeedSource = "feedSource" ;
 
   public BuildContext(ICakeContext context) : base(context)
   {
     var arguments = new Dictionary<string, string>();
-    foreach (var argument in new string[] { FeedAccessToken, BuildVersion, ServicePrincipalUsername, servicePrincipalTenant, servicePrincipalPassword, DockerRegistry, ProjectName, FeedSource })
+    foreach (var argument in new string[] { FeedAccessToken, FeedUrl, BuildVersion, ServicePrincipalUsername, servicePrincipalTenant, servicePrincipalPassword, DockerRegistry, ProjectName, FeedSource })
     {
       if (context.Arguments.HasArgument(argument))
       {

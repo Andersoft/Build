@@ -18,7 +18,7 @@ public sealed class PackSolution : AsyncFrostingTask<BuildContext>
   }
   public override async Task RunAsync(BuildContext context)
   {
-    Environment.SetEnvironmentVariable("", $"{{\"endpointCredentials\": [{{\"endpoint\":\"{context.Parameters[BuildContext.FeedUrl]}\", \"username\":\"docker\", \"password\":\"{context.Parameters[BuildContext.FeedAccessToken]}\"}}]}}");
+    Environment.SetEnvironmentVariable("VSS_NUGET_EXTERNAL_FEED_ENDPOINTS", $"{{\"endpointCredentials\": [{{\"endpoint\":\"{context.Parameters[BuildContext.FeedUrl]}\", \"username\":\"docker\", \"password\":\"{context.Parameters[BuildContext.FeedAccessToken]}\"}}]}}");
     
     context.DotNetPack($"../../{context.Parameters[BuildContext.ProjectName]}.sln", new DotNetPackSettings
     {

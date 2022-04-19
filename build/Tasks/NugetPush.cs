@@ -9,7 +9,7 @@ public sealed class NugetPush : FrostingTask<BuildContext>
 {
   public override bool ShouldRun(BuildContext context)
   {
-    return context.IsValid;
+    return context.IsValid && Directory.Exists("./artifacts/consumeables");
   }
   public override void Run(BuildContext context)
   {

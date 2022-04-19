@@ -24,7 +24,6 @@ public sealed class PackSolution : AsyncFrostingTask<BuildContext>
     {
       Configuration = "Release",
       OutputDirectory = "./artifacts/consumeables",
-      Runtime = "linux-x64",
       ArgumentCustomization = (builder) => builder.Append($"/p:Version={context.Parameters[BuildContext.BuildVersion]}")
     });
   }
